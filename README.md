@@ -27,7 +27,7 @@ Todo
 
 ### 🤝 Publication  🧾
 
-Please consider referencing this work if you use the `code` or `data`.
+If you find ActiSeg-NL useful for your research, please cite it.
 
 A BibTeX entry will be provided after the preprint is available.
 

@@ -3,13 +3,15 @@
 
 This repository is the repository of ActiSeg-NL.  🔬
 
-<div align="center">
-  <video <source src="https://raw.githubusercontent.com/mylwx/ActiSeg-NL/main/assets/concept_noisy_actionvos.mp4" type="video/mp4"></video>
-</div>
+https://github.com/user-attachments/assets/d5b8d6f0-9c5a-4436-83ed-36293db144b8
+
+
 
 ### Update  🗓️
 
 * 2025.09.21 Init repository.  ✨
+
+
 
 ### TODO List  ✅
 

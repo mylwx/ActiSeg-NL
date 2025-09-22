@@ -1,9 +1,10 @@
+
 # ActiSeg-NL  🏷️🎲🤖
 
 This repository is the repository of ActiSeg-NL.  🔬
 
-<div align=center>
-  <img src="concept_noisy_actionvos.png" alt="ActiSeg-NL concept"/>
+<div align="center">
+  <video src="./assets/concept_noisy_actionvos.mp4" width="820" controls playsinline preload="metadata"></video>
 </div>
 
 ### Update  🗓️

@@ -4,7 +4,7 @@
 This repository is the repository of ActiSeg-NL.  🔬
 
 <div align="center">
-  <video src="./assets/concept_noisy_actionvos.mp4" width="820" controls playsinline preload="metadata"></video>
+  <video <source src="https://raw.githubusercontent.com/mylwx/ActiSeg-NL/main/assets/concept_noisy_actionvos.mp4" type="video/mp4"></video>
 </div>
 
 ### Update  🗓️

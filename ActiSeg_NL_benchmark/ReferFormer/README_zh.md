@@ -1,19 +1,19 @@
-# ActiSeg-NL-Benchmark: Noisy Label Robust Video Object Segmentation Benchmark
+# ActiSeg-NL-Benchmark 噪声标签鲁棒视频物体分割基准测试
 
-## Overview
+## 概述
 
-A benchmark of various noisy label robust learning methods on Referring Video Object Segmentation tasks, including:
+多种噪声标签鲁棒学习方法在动作指代视频物体分割任务上的基准测试，包括：
 
-- **Co-teaching** - Co-teaching noisy label learning method
-- **SCE (Symmetric Cross Entropy)** - Symmetric cross entropy loss function
-- **GCE (Generalized Cross Entropy)** - Generalized cross entropy loss function
-- **APL (Active Passive Loss)** - Active passive loss function
-- **ELR** ([Early-learning regularization prevents memorization of noisy labels](https://arxiv.org/pdf/2007.00151))
-- **NPN** ([Adaptive integration of partial label learning and negative learning for enhanced noisy label learning](https://arxiv.org/pdf/2312.09505))
+- **Co-teaching** - 协同教学噪声标签学习方法
+- **SCE (Symmetric Cross Entropy)** - 对称交叉熵损失函数
+- **GCE (Generalized Cross Entropy)** - 广义交叉熵损失函数
+- **APL (Active Passive Loss)** - 主动被动损失函数
+- **ELR ([Early-learning regularization prevents memorization of noisy labels](https://arxiv.org/pdf/2007.00151))**
+- **NPN ([Adaptive integration of partial label learning and negative learning for enhanced noisy label learning](https://arxiv.org/pdf/2312.09505))**
 
-## Training Methods
+## 训练方法
 
-### 1. Co-teaching Training
+### 1. Co-teaching训练
 
 ```bash
 bash scripts/train_actionvos_coteaching.sh \
@@ -31,9 +31,9 @@ bash scripts/train_actionvos_coteaching.sh \
   --num_workers 2
 ```
 
-### 2. SCE Loss Function Training
+### 2. SCE损失函数训练
 
-#### SCE Method - mask9 mask noise training
+#### SCE方法 - mask9掩码噪声训练
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -53,7 +53,7 @@ bash scripts/train_actionvos.sh \
   --use_sce
 ```
 
-#### SCE Method - noise40 expression noise training
+#### SCE方法 - noise40表达式噪声训练
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -72,9 +72,9 @@ bash scripts/train_actionvos.sh \
   --use_sce
 ```
 
-### 3. GCE Loss Function Training
+### 3. GCE损失函数训练
 
-#### GCE Method - mask9 mask noise training
+#### GCE方法 - mask9掩码噪声训练
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -95,7 +95,7 @@ bash scripts/train_actionvos.sh \
   --gce_q 0.7
 ```
 
-#### GCE Method - noise40 expression noise training
+#### GCE方法 - noise40表达式噪声训练
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -115,9 +115,9 @@ bash scripts/train_actionvos.sh \
   --gce_q 0.7
 ```
 
-### 4. APL Loss Function Training
+### 4. APL损失函数训练
 
-#### APL Method - mask9 mask noise training
+#### APL方法 - mask9掩码噪声训练
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -137,7 +137,7 @@ bash scripts/train_actionvos.sh \
   --use_active_passive
 ```
 
-#### APL Method - noise40 expression noise training
+#### APL方法 - noise40表达式噪声训练
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -156,9 +156,9 @@ bash scripts/train_actionvos.sh \
   --use_active_passive
 ```
 
-### 5. ELR Training
+### 5. ELR训练
 
-#### ELR Method - mask9 mask noise training
+#### ELR方法 - mask9掩码噪声训练
 
 ```bash
 bash scripts/train_actionvos_elr_orgsize_mask.sh \
@@ -180,7 +180,7 @@ bash scripts/train_actionvos_elr_orgsize_mask.sh \
   --sample_map_path actionvos_dirs/r101/0805_elr_mask9_noamp/clip_sample_map.json
 ```
 
-#### ELR Method - noise20 expression noise training
+#### ELR方法 - noise20表达式噪声训练
 
 ```bash
 bash scripts/train_actionvos_elr_orgsize_mask.sh \
@@ -201,9 +201,9 @@ bash scripts/train_actionvos_elr_orgsize_mask.sh \
   --sample_map_path actionvos_dirs/r101/0805_elr_noise20_noamp/clip_sample_map.json
 ```
 
-### 6. NPN Training
+### 6. NPN训练
 
-#### NPN Method - mask9 mask noise training
+#### NPN方法 - mask9掩码噪声训练
 
 ```bash
 bash scripts/train_actionvos_npn_orgsize_mask.sh \
@@ -227,7 +227,7 @@ bash scripts/train_actionvos_npn_orgsize_mask.sh \
   --sample_map_path actionvos_dirs/r101/0805_npn_mask9_noamp/clip_sample_map.json
 ```
 
-#### NPN Method - noise20 expression noise training
+#### NPN方法 - noise20表达式噪声训练
 
 ```bash
 bash scripts/train_actionvos_npn_orgsize_mask.sh \
@@ -250,9 +250,9 @@ bash scripts/train_actionvos_npn_orgsize_mask.sh \
   --sample_map_path actionvos_dirs/r101/0805_npn_noise20_noamp/clip_sample_map.json
 ```
 
-## Inference and Evaluation
+## 推理评估
 
-### Inference
+### 推理
 
 ```bash
 bash scripts/test_actionvos.sh \
@@ -266,10 +266,10 @@ bash scripts/test_actionvos.sh \
   --actionvos_path ../dataset_visor
 ```
 
-### Evaluation Metrics Calculation
+### 评估指标计算
 
 ```bash
-# Calculate evaluation metrics
+# 计算评估指标
 cd ..
 python actionvos_metrics.py \
   --gt_path ./dataset_visor/Annotations_Sparse/val \

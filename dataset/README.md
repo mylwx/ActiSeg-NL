@@ -1,73 +1,73 @@
-# Dataset 噪声生成说明
+# Dataset Noise Generation Instructions
 
-本目录包含用于生成训练数据噪声的脚本和预生成的噪声数据集。
+This directory contains scripts for generating training data noise and pre-generated noisy datasets.
 
-## 噪声生成脚本
+## Noise Generation Scripts
 
-### 1. 提示词名称噪声生成脚本
+### 1. Prompt Name Noise Generation Script
 
-**文件**: `generate_prompt_name_noise.py`
+**File**: `generate_prompt_name_noise.py`
 
-**功能**: 该脚本用于生成提示词级别的噪声，通过随机替换目标对象的类别名称和描述文本来创建噪声训练数据。具体功能包括：
+**Function**: This script generates prompt-level noise by randomly replacing the target object's category name and description text to create noisy training data. Specific features include:
 
-- 从所有类别中随机选择不同于原始类别的类别作为噪声标签
-- 根据噪声类别生成对应的噪声提示词（格式：`{category} used in the action of {narration}`）
-- 支持自定义噪声率（rate_noise参数），控制生成噪声数据的比例
-- 保留原始标签信息（class_id_org、category_org、exp_org）用于对比分析
+- Randomly selects categories different from the original category as noisy labels
+- Generates corresponding noise prompts based on noise categories (format: `{category} used in the action of {narration}`)
+- Supports custom noise rate (rate_noise parameter) to control the proportion of noisy data generated
+- Preserves original label information (class_id_org, category_org, exp_org) for comparative analysis
 
-**主要参数**:
+**Main Parameters**:
 
-- `--actionvos_path_input`: 输入数据路径
-- `--actionvos_output_path_noise`: 噪声数据输出路径
-- `--rate_noise`: 噪声率（默认0.2，即20%的数据添加噪声）
+- `--actionvos_path_input`: Input data path
+- `--actionvos_output_path_noise`: Noise data output path
+- `--rate_noise`: Noise rate (default 0.2, i.e., 20% of data with noise added)
 
-### 2. 标注掩码噪声生成脚本
+### 2. Annotation Mask Noise Generation Script
 
-**文件**: `generate_annotations_mask_noise.py`
+**File**: `generate_annotations_mask_noise.py`
 
-**功能**: 该脚本用于生成标注掩码级别的噪声，通过对目标对象的分割掩码进行形态学膨胀操作来创建噪声标注。具体功能包括：
+**Function**: This script generates annotation mask-level noise by performing morphological dilation operations on target object segmentation masks to create noisy annotations. Specific features include:
 
-- 对正样本对象的掩码进行膨胀操作，扩大标注区域
-- 支持自定义膨胀核大小（ksize参数）和噪声率（rate_noise参数）
-- 保持负样本掩码不变，仅处理正样本
-- 保存原始掩码和噪声掩码对比文件
+- Performs dilation operations on positive sample object masks to expand annotation regions
+- Supports custom dilation kernel size (ksize parameter) and noise rate (rate_noise parameter)
+- Keeps negative sample masks unchanged, only processes positive samples
+- Saves original mask and noisy mask comparison files
 
-**主要参数**:
+**Main Parameters**:
 
-- `--root_annotations_save`: 噪声标注保存路径
-- `--ksize`: 膨胀核大小（默认9，可选9/15/21，对应mask9/15/21）
-- `--split`: 数据集划分（train/val）
-- `--rate_noise`: 噪声率（默认1.0，即全部添加噪声）
+- `--root_annotations_save`: Noise annotation save path
+- `--ksize`: Dilation kernel size (default 9, optional 9/15/21, corresponding to mask9/15/21)
+- `--split`: Dataset split (train/val)
+- `--rate_noise`: Noise rate (default 1.0, i.e., add noise to all data)
 
-## 提示词指代噪声数据集
+## Prompt Referencing Noise Dataset
 
-**目录**: `prompt_name_noise/`
+**Directory**: `prompt_name_noise/`
 
-本目录提供了预生成的提示词噪声数据集，包含不同噪声率的训练数据，可直接用于模型训练和评估。
+This directory provides pre-generated prompt noise datasets with different noise rates for training and evaluation models.
 
-### 数据集结构
+### Dataset Structure
 
 ```
 prompt_name_noise/
 └── prompt_name_20_40_60/
-    ├── ImageSets_noise20_classid_prompt/    # 20%噪声率数据集
+    ├── ImageSets_noise20_classid_prompt/    # 20% noise rate dataset
     │   ├── train_meta_expressions_promptaction.json
     │   └── train_objects_category.json
-    ├── ImageSets_noise40_classid_prompt/    # 40%噪声率数据集
+    ├── ImageSets_noise40_classid_prompt/    # 40% noise rate dataset
     │   ├── train_meta_expressions_promptaction.json
     │   └── train_objects_category.json
-    └── ImageSets_noise60_classid_prompt/    # 60%噪声率数据集
+    └── ImageSets_noise60_classid_prompt/    # 60% noise rate dataset
         ├── train_meta_expressions_promptaction.json
         └── train_objects_category.json
 ```
 
-### 文件说明
+### File Description
 
-- `train_meta_expressions_promptaction.json`: 包含噪声提示词的表达式标注文件，每个表达式的exp字段已被替换为噪声类别名称
-- `train_objects_category.json`: 包含噪声类别信息的对象类别文件，class_id和category字段已被替换为噪声类别
+- `train_meta_expressions_promptaction.json`: Expression annotation file containing noisy prompts, where the exp field of each expression has been replaced with noisy category names
+- `train_objects_category.json`: Object category file containing noisy category information, where class_id and category fields have been replaced with noisy categories
 
-### 噪声率说明
+### Noise Rate Description
 
-- **noise20**: 20%的训练数据添加了提示词噪声
-- **noise40**: 40%的训练数据添加了提示词噪声
-- **noise60**: 60%的训练数据添加了提示词噪声
+- **noise20**: 20% of training data with prompt noise added
+- **noise40**: 40% of training data with prompt noise added
+- **noise60**: 60% of training data with prompt noise added

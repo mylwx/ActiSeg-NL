@@ -1,12 +1,12 @@
 # ActiSeg-NL-PMHM
 
-## Overview
+## 概述
 
-**PMHM** method, a noisy label robust learning method with multi-auxiliary-head collaborative mining, specifically designed for mask-level label noise problems in Referring Video Object Segmentation tasks.
+**PMHM** 方法，一种多副头协同挖掘的噪声标签鲁棒学习方法，专门针对动作指代视频物体分割任务中的掩码级标签噪声问题。
 
-## PMHM Method Training
+## PMHM方法训练
 
-### Mask Noise Training (mask9)
+### 掩码噪声训练 (mask9)
 
 ```bash
 bash scripts/train_actionvos.sh \
@@ -28,9 +28,9 @@ bash scripts/train_actionvos.sh \
   --tv_alpha_start 0.7 --tv_alpha_end 0.5 --tv_beta 0.5
 ```
 
-## Inference and Evaluation
+## 推理评估
 
-### PMHM Model Inference
+### PMHM模型推理
 
 ```bash
 bash scripts/test_actionvos.sh \
@@ -44,10 +44,10 @@ bash scripts/test_actionvos.sh \
   --actionvos_path ../dataset_visor
 ```
 
-### Evaluation Metrics Calculation
+### 评估指标计算
 
 ```bash
-# Calculate evaluation metrics
+# 计算评估指标
 cd ..
 python actionvos_metrics.py \
   --gt_path ./dataset_visor/Annotations_Sparse/val \

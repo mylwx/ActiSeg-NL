@@ -57,7 +57,6 @@ Both directories contain complete instructions for:
 
 - Training with noise-contaminated datasets
 - Evaluation using standard ActionVOS metrics (p-mIoU, n-mIoU, p-cIoU, n-cIoU, gIoU, Accuracy)
-- Reproducing experimental results from our paper
 
 ## Citation
 

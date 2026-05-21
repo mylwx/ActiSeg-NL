@@ -1,4 +1,4 @@
-# ActiSeg-NL-Benchmark: Noisy Label Robust Video Object Segmentation Benchmark
+# ActiSeg-NL-Benchmark
 
 ## Overview
 
